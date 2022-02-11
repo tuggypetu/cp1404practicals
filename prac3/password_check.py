@@ -1,4 +1,4 @@
-"""Get password and print asteriks of password length"""
+"""Get password and print the asteriks of password length"""
 
 """Constants"""
 MIN_PASS_LENGTH = 5
