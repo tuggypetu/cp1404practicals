@@ -12,6 +12,7 @@ def main():
 
 
 def get_pwd():
+    """Get valid password input"""
     geta_password = input("Enter password: ")
     while len(geta_password) < 5:
         print(f"Invalid. Minimum password length is {MIN_PASS_LENGTH}.")
@@ -20,6 +21,7 @@ def get_pwd():
 
 
 def get_asteriks(geta_password):
+    """Return asterisks of input length"""
     asteriks = '*' * len(geta_password)
     return asteriks
 
