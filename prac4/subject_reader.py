@@ -13,7 +13,6 @@ def main():
     print("----------")
     inline_data(data)
     print("\n----------")
-    username_check()
 
 
 def get_data():
@@ -38,17 +37,6 @@ def inline_data(data):
     """Prints the data in proper sentences"""
     for i in data:
         print(f"{i[0]} is taught by {i[1]:12} and has {i[2]:3} students")
-
-
-def username_check():
-    usernames = ['jimbo', 'giltson98', 'derekf', 'WhatSup', 'NicolEye', 'swei45', 'BaseInterpreterInterface',
-                 'BaseStdIn', 'Command', 'ExecState', 'InteractiveConsole', 'InterpreterInterface', 'StartServer',
-                 'bob']
-    username = input("Enter username: ")
-    if username in usernames:
-        print("Access granted")
-    else:
-        print("Access denied")
 
 
 main()
