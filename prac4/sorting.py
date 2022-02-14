@@ -20,8 +20,8 @@ data = [['Derek', 7], ['Carrie', 7], ['Bob', 6], ['Aaron', 6]]
 data.sort(key=itemgetter(1, 0))
 print(data)
 
-# The following items are in the form: id, first name, last name, age
 items = [('123', 'Derek', 'Smith', 7), ('124', 'Carrie', 'Brown', 7),
          ('125', 'Bob', 'Smith', 6), ('126', 'Aaron', 'Hewitt', 6)]
-items.sort(key=itemgetter(0, 1, 2, 3))
+# The items will be sorted in the form: last name, first name
+items.sort(key=itemgetter(2, 1))
 print(items)
