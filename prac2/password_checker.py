@@ -32,7 +32,6 @@ def is_valid_password(password):
     count_digit = 0
     count_special = 0
 
-    # TODO: if length is wrong, return False
     for char in password:
         if char.islower():
             count_lower += 1
