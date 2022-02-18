@@ -2,7 +2,7 @@
 
 
 class ProgrammingLanguage:
-    """"""
+    """Class for Programming Languages"""
     def __init__(self, name="", typing="", reflection=True, year=0):
         """Initialise"""
 
