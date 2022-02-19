@@ -37,6 +37,7 @@ def guitar_print(guitar_list):
     name_width = max(len(guitar.name) for guitar in guitar_list)
     cost_width = max(len(f"{guitar.cost:,.2f}") for guitar in guitar_list)
 
+    guitar_list.sort()
     print("\nThese are my guitars:")
     for i, guitar in enumerate(guitar_list, 1):
         vintage_string = "(vintage)" if guitar.is_vintage() else ''
