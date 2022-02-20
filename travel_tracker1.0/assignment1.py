@@ -3,7 +3,7 @@ Travel Tracker 1.0
 
 Name: Siddhanth Biswas
 Date started: 20/02/2022
-GitHub URL:
+GitHub URL: https://github.com/tuggypetu/cp1404practicals/tree/master/travel_tracker1.0
 """
 
 from operator import itemgetter
