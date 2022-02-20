@@ -25,3 +25,10 @@ items = [('123', 'Derek', 'Smith', 7), ('124', 'Carrie', 'Brown', 7),
 # The items will be sorted in the form: last name, first name
 items.sort(key=itemgetter(2, 1))
 print(items)
+
+place_list = [['Lima', 'Peru', 3, 'n'], ['Oslo', 'Norway', 7, 'n'],
+    ['Auckland', 'New Zealand', 1, 'v'], ['Rome', 'Italy', 12, 'n']]
+place_list.sort(key=itemgetter(2))
+place_list.sort(key=itemgetter(3))
+print(place_list)
+
