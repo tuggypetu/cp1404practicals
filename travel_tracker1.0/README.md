@@ -17,7 +17,7 @@ This repo contains starter files including a Python file and two CSV files.
 This program is a simple "travel tracker" that allows a user to track places they wish to visit and places they have 
 already visited. The program reads and writes a list of places in a text file, and each place has:
 
-● name, country, priority, whether it is visited (v) or unvisited (n).
+- name, country, priority, whether it is visited (v) or unvisited (n).
 
 Users can choose to see the list of places, including the total number of places and
 unvisited places. 
