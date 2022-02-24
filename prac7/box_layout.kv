@@ -1,16 +1,25 @@
 BoxLayout:
     orientation: 'vertical'
-#    orientation: 'horizontal'
-    Button:
-        text: 'Clear'
-        on_press: app.clear()
-    TextInput:
-        id: input_name
-        text: ''
-    Button:
-        text: 'Greet'
-        on_press: app.handle_greet()
-    Button:
-        text: 'Enter your name'
-        color: (1, 1, 0, 1)
-        id: output_label
+    BoxLayout:
+        orientation: 'horizontal'
+        Button:
+            text: 'Clear'
+            size_hint_x: 0.3
+            font_size: 50
+            on_press: app.clear()
+        TextInput:
+            font_size: 50
+            id: input_name
+            text: ''
+    BoxLayout:
+        orientation: 'horizontal'
+        Button:
+            text: 'Greet'
+            font_size: 50
+            size_hint_x: 0.3
+            on_press: app.handle_greet()
+        Label:
+            text: 'Enter your name'
+            font_size: 50
+            color: (1, 1, 0, 1)
+            id: output_label

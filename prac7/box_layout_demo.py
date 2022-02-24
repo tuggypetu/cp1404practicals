@@ -1,11 +1,15 @@
 from kivy.app import App
 from kivy.lang import Builder
+from kivy.core.window import Window
 
 
 class BoxLayoutDemo(App):
+
     def build(self):
+        Window.size = (800, 400)
         self.title = "Box Layout Demo"
         self.root = Builder.load_file('box_layout.kv')
+
         return self.root
 
     def handle_greet(self):
