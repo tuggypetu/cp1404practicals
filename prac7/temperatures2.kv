@@ -1,0 +1,22 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        id: input_box
+        TextInput:
+            text: ''
+            id: temp_input
+            on_text: app.show_temp(temp_input.text)
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.25
+            Button:
+                text: 'Up'
+                on_press: app.handle_up_down(temp_input.text, 1)
+            Button:
+                text: 'Down'
+                on_press: app.handle_up_down(temp_input.text, -1)
+    Label:
+        text: app.temp_message
+        id: temp_convert
+        color: (1, 1, 0, 1)
