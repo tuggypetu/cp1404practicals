@@ -1,0 +1,16 @@
+BoxLayout:
+    orientation: 'vertical'
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint_y: 0.5
+        TextInput:
+            id: input_score
+            font_size: 90
+        Button:
+            text: 'JCU Grade it! Click!'
+            size_hint_x: 0.6
+            on_press: app.tell_grade(input_score.text)
+    Label:
+        text: 'Enter a valid score to find your JCU Grade!'
+        id: output_grade
+        color: (1, 1, 0, 1)
