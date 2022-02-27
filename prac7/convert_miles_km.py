@@ -15,7 +15,7 @@ class ConvertMilesToKMApp(App):
         """build the Kivy app from the kv file"""
         self.title = "Convert Miles to Km"
         self.root = Builder.load_file('convert_miles_km.kv')
-        self.message = 'Enter miles value in input and click "Convert miles to km" to convert it to km.\n' \
+        self.message = 'Enter miles value in input to convert it to km.\n' \
                        'Click up to increase input by 1.\n' \
                        'Click down to decrease input by 1.'
         return self.root
@@ -25,7 +25,9 @@ class ConvertMilesToKMApp(App):
         print('convert miles to km')
         try:
             km = float(miles) * MILES_TO_KM
-            self.root.ids.km_output.text = str(km)
+            self.root.ids.km_output.text = f"{km:.2f}"
+            self.root.ids.km_output.font_size = 200
+            self.root.ids.km_output.bold = True
         except ValueError:
             self.root.ids.km_output.text = '0.0'
 

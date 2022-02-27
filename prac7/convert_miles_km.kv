@@ -1,3 +1,26 @@
+
+<Button>:
+#    font_name: 'BuxtonSketch.ttf'
+    font_size: 56
+    background_normal: ''
+    background_down: 'atlas://data/images/defaulttheme/button'
+    canvas.after:
+        Color:
+            rgba: 0, 0, 0, 1
+        Line:
+            rectangle: self.x + 1, self.y + 1, self.width - 1, self.height - 1
+
+<Label>:
+#    font_name: 'BuxtonSketch.ttf'
+    font_size: 56
+    background_normal: ''
+    background_down: 'atlas://data/images/defaulttheme/button'
+    canvas.after:
+        Color:
+            rgba: 0, 0, 0, 0
+        Line:
+            rectangle: self.x + 1, self.y + 1, self.width - 1, self.height - 1
+
 BoxLayout:
     orientation: 'vertical'
     BoxLayout:
@@ -5,7 +28,8 @@ BoxLayout:
         TextInput:
             id: miles_input
             text: ''
-            font_size: 70
+            color: (1, 0, 0,1)
+            font_size: 180
             on_text: app.handle_convert(miles_input.text)
         BoxLayout:
             orientation: 'vertical'
@@ -13,14 +37,15 @@ BoxLayout:
             Button:
                 text: 'Up'
                 on_press: app.handle_up_down(miles_input.text, 1)
+                color: 1, 0, 1, 1
             Button:
                 text: 'Down'
                 on_press: app.handle_up_down(miles_input.text, -1)
-#    Button:
-#        text: 'Convert miles to km'
-#        on_press: app.handle_convert(miles_input.text)
+                color: 1, 0, 1, 1
+
     Label:
         id: km_output
         text: app.message
         font_size: 40
-        color: (1, 1, 0, 1)
+#        bold: True
+        color: (0, 0.667, 0, 1)
