@@ -17,7 +17,7 @@ class TemperatureConvert(App):
         """Build Kivy GUI"""
         self.title = 'Convert Fahrenheit and Celsius Temperatures'
         self.root = Builder.load_file('temperatures2.kv')
-        self.temp_message = 'Click button to choose which temperature to convert'
+        self.temp_message = 'Enter temperature to convert'
         return self.root
 
     def show_temp(self, temp):

@@ -7,6 +7,7 @@ BoxLayout:
             text: ''
             id: temp_input
             on_text: app.show_temp(temp_input.text)
+            font_size: 120
         BoxLayout:
             orientation: 'vertical'
             size_hint_x: 0.25
@@ -20,3 +21,4 @@ BoxLayout:
         text: app.temp_message
         id: temp_convert
         color: (1, 1, 0, 1)
+        font_size: 60
