@@ -1,0 +1,263 @@
+
+<Button>
+    background_color: 0, 0, 1, 0.7
+
+BoxLayout:
+    orientation: 'vertical'
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1, 0.2
+        background_color: 0, 0, 1, 1
+        Button:
+            font_size: '18sp'
+            text: "Settings"
+            id: settings_game
+            on_press: screen_manager.current = 'settings_screen'
+            on_press: app.handle_menu(0)
+        Button:
+            font_size: '24sp'
+            text: "Game"
+            id: game_game
+            on_press: screen_manager.current = 'game_screen'
+            on_press: app.handle_menu(1)
+        Button:
+            font_size: '18sp'
+            text: "About"
+            id: about_game
+            on_press: screen_manager.current = 'about_screen'
+            on_press: app.handle_menu(2)
+
+    ScreenManager:
+        id: screen_manager
+
+# Game Screen
+        Screen:
+            name: 'game_screen'
+            on_touch_down: screen_manager.current = 'game_screen'
+            Label:
+                text: 'Keep Guessing!'
+                bold: True
+                font_size: 60
+                color: 0, 0.6, 1, 1
+                size_hint: 1, 1.6
+
+            BoxLayout:
+                orientation: 'horizontal'
+                Label:
+                    text: ''
+                    size_hint: 1, 1
+                    color: 1, 1, 0, 1
+                    id: min_max
+                Label:
+                    text: ''
+                    id: guess_count
+                    color: 1, 0, 1, 1
+            Label:
+                text: ''
+                size_hint: 1, 0.3
+                id: guess_info
+                color: 0, 1, 1, 1
+
+# Settings screen
+        Screen:
+            name: 'settings_screen'
+#            on_touch_down: screen_manager.current = 'game_screen'
+            BoxLayout:
+                orientation: 'vertical'
+                Label:
+                    text: "Settings"
+                    size_hint: 1, 1.5
+                    font_size: 60
+                    bold: True
+                    color: 0.5, 0, 1, 1
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint: 1, 0.3
+                    Label:
+                        text: 'Minimum Number:'
+                    TextInput:
+                        id: min_num
+                        text: ''
+                        font_size: 50
+                        on_text: app.handle_valid_num(min_num.text)
+                        on_text: app.handle_min_max(min_num.text, max_num.text)
+                        on_text: app.empty_count()
+
+                    Label:
+                        text: 'Maximum Number:'
+                    TextInput:
+                        id: max_num
+                        text: ''
+                        font_size: 50
+                        on_text: app.handle_valid_num(max_num.text)
+                        on_text: app.handle_min_max(min_num.text, max_num.text)
+                        on_text: app.empty_count()
+                BoxLayout:
+                    orientation: 'horizontal'
+                    size_hint: 1, 0.5
+                    Label:
+                        id: enter_valid_num
+                        text: 'By default, Minimum is set as 1 and Maximum is set as 10.'
+
+# About screen
+        Screen:
+            name: 'about_screen'
+            on_touch_down: screen_manager.current = 'game_screen'
+            Label:
+                text: "Written by Siddhanth Biswas\n---------------------------------\n            Keep Guessing!"
+                bold: True
+                font_size: 48
+                color: 0, 0.6, 1, 1
+            Label:
+                text: ''
+                font_size: 0
+                color: 0, 0, 0, 0
+                id: guess_answer
+
+
+# Buttons and Textinput are for entering guesses- MAIN
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1, 0.4
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint_x: 0.25
+            Button:
+                text: 'Up'
+                on_press: app.handle_up_down(guess.text, 1)
+                color: 0, 0.8, 1, 1
+                bold: True
+            Button:
+                text: 'Down'
+                on_press: app.handle_up_down(guess.text, -1)
+                on_press: screen_manager.current = 'game_screen'
+                on_press: app.handle_menu(1)
+                color: 0, 0.8, 1, 1
+                bold: True
+        TextInput:
+            text: ''
+            id: guess
+            on_text: screen_manager.current = 'game_screen'
+            on_text: app.handle_menu(1)
+            font_size: 100
+#            on_press: screen_manager.current = 'settings_screen'
+        Button:
+            font_size: '32sp'
+            size_hint: 0.5, 1
+            text: "Guess"
+            color: 0, 0.8, 0, 1
+            bold: True
+            on_press: screen_manager.current = 'game_screen'
+            on_press: app.handle_menu(1)
+            on_press: app.guess_counter(guess_count.text, guess.text)
+            on_press: app.handle_guess(guess_count.text, guess.text, min_num.text, max_num.text, guess_answer.text)
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1, 0.3
+        Label:
+            id: found_it
+            color: 0, 0.8, 0, 1
+            font_size: 60
+
+# Footer for New game and exit game
+
+    BoxLayout:
+        orientation: 'horizontal'
+        size_hint: 1, 0.2
+        Button:
+            font_size: '24sp'
+            text: "New Game"
+            on_press: screen_manager.current = 'game_screen'
+            on_press: app.handle_new_game()
+        Button:
+            font_size: '24sp'
+            text: "Exit Game"
+            background_color: 0.5, 0, 0, 1
+            on_press: app.handle_exit()
+
+
+
+
+
+
+
+
+
+
+# Solution
+
+#BoxLayout:
+#    orientation: 'vertical'
+#
+#    ScreenManager:
+#        id: screen_manager
+#        Screen:
+#            name: 'game_screen'
+#            on_touch_down: screen_manager.current = 'game_screen'
+#            BoxLayout:
+#                orientation: 'vertical'
+#                Label:
+#                    text: "game"
+#                BoxLayout:
+#                    orientation: 'vertical'
+#                    BoxLayout:
+#                        orientation: "horizontal"
+#                        Button:
+#                            text: "New Game"
+#                            on_press: app.handle_new_game()
+#
+#                        Button:
+#                            text: "Exit Game"
+#                    Label:
+#                        id: game_guess_number
+#                        text: "Guess Number = 0"
+#                    Label:
+#                        id: game_info_text
+#                        text: "Please enter a number between 1 and 10"
+#                    BoxLayout:
+#                        orientation: "horizontal"
+#                        TextInput:
+#                            id: guess_input
+#                        Button:
+#                            text: 'Guess'
+#                            on_press: app.handle_guess()
+#
+#        Screen:
+#            name: 'settings_screen'
+#            on_touch_down: screen_manager.current = 'game_screen'
+#            Label:
+#                text: "settings"
+#
+#        Screen:
+#            name: 'about_screen'
+#            on_touch_down: screen_manager.current = 'game_screen'
+#            Label:
+#                text: "Written by IT@JCU"
+#
+#
+#    BoxLayout:
+#        orientation: 'horizontal'
+#        size_hint: 1, 0.1
+#        Button:
+#            id: settings_screen
+#            font_size: '24sp'
+#            text: "Settings"
+#            on_press: screen_manager.current = 'settings_screen'
+#            background_color: [1,1,1,1]
+#            on_press: app.handle_menu('settings_screen')
+#        Button:
+#            id: about_screen
+#            font_size: '24sp'
+#            text: "About"
+#            on_press: screen_manager.current = 'about_screen'
+#            background_color: [1,1,1,1]
+#            on_press: app.handle_menu('about_screen')
+#        Button:
+#            id: game_screen
+#            font_size: '24sp'
+#            text: "Game"
+#            on_press: screen_manager.current = 'game_screen'
+#            background_color: [0,0,1,1]
+#            on_press: app.handle_menu('game_screen')
