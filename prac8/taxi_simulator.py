@@ -10,6 +10,7 @@ def main():
     """Simulate Taxi choices and drive"""
     taxis = [Taxi("Prius", 100), SilverServiceTaxi("Limo", 100, 2), SilverServiceTaxi("Hummer", 200, 4)]
     print("Let's drive")
+    total_distance = 0
     # Bills for each car is added because -
     # - the km on current fare was not displaying correctly when same car was driven twice.
     bill, bill_1, bill_2, bill_3 = 0, 0, 0, 0
@@ -30,8 +31,10 @@ def main():
         else:
             print("Invalid Choice")
         bill = bill_1 + bill_2 + bill_3
+        total_distance = sum(taxi.odometer for taxi in taxis)
         print(f"Bill to date: ${bill:.2f}")
         choice = input(f"{MENU}\n>>> ").lower()
+    print(f"Total distance driven= {total_distance:.2f}km")
     print(f"Total trip cost: ${bill:.2f}")
     display_taxis(taxis, "Taxis are now: ")
 
