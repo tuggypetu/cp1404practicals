@@ -20,12 +20,6 @@ def main():
                 continue
             in_file = open(filename, 'rb')
             total += 1
-            # for line in in_file:
-            #     if copyright_text in line:
-            #         yes_no += 1
-            #     else:
-            #         yes_no -= 1
-            #         missing_text_dict[filename] = os.getcwd()
 
             contents = in_file.read().decode(errors='replace')
             if copyright_text in contents:
