@@ -52,6 +52,7 @@ def get_fixed_filename(filename):
     'O_Little_Town_Of_Bethlehem.txt'
     >>> get_fixed_filename('ItIsWell (oh my soul).txt')
     'It_Is_Well_(Oh_My_Soul).txt'
+
     """
     new_name = filename.replace(" ", "_").replace(".TXT", ".txt")
     letter_list = [letter for letter in new_name]
