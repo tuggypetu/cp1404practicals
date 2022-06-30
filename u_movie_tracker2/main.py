@@ -5,7 +5,7 @@ Brief Project Description: # Created both a console program and a Graphical User
                                 and the Kivy toolkit, for an app to display a Movie Collection. The app is interactive
                                 by changing movies from watched and unwatched, and by adding new movies to collection.
                                 Each movie also has details like title, year, and category.
-GitHub URL: https://github.com/tuggypetu/cp1404practicals
+GitHub URL: https://github.com/tuggypetu/cp1404practicals/tree/master/u_movie_tracker2
 """
 
 
