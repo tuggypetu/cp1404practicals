@@ -59,4 +59,5 @@ def run_tests():
         mov.mark_unwatched()
         print(mov.watched, '\n')
 
+
 run_tests()

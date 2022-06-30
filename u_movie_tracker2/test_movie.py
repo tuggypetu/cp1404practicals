@@ -1,4 +1,4 @@
-"""(Incomplete) Tests for Movie class."""
+"""Tests for Movie class."""
 from movie import Movie
 
 
