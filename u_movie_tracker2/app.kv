@@ -1,0 +1,60 @@
+BoxLayout:
+    orientation: 'horizontal'
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint_x: 0.4
+        Label:
+            text: "Sort by:"
+            color: (1, 1, 0.5, 1)
+        Spinner:
+            id: sort_selection
+            text: app.current_sort
+            values: app.sort_tags
+            on_text: app.change_sort(self.text)
+            background_color: (1, 1, 0.5, 1)
+        Label:
+            text: "Add New Movie:"
+            color: (0.9, 0.5, 0.9, 1)
+        Label:
+            text: "Title"
+            color: (0.9, 0.5, 0.9, 1)
+        TextInput:
+            text: ''
+            id: title_input
+            multiline: False
+            write_tab: False
+        Label:
+            text: "Year"
+            color: (0.9, 0.5, 0.9, 1)
+        TextInput:
+            text: ''
+            id: year_input
+            multiline: False
+            write_tab: False
+        Label:
+            text: "Category"
+            color: (0.9, 0.5, 0.9, 1)
+        TextInput:
+            text: ''
+            id: category_input
+            multiline: False
+            write_tab: False
+        Button:
+            text: "Add Movie"
+            on_release: app.check_movie(title_input.text, year_input.text, category_input.text), app.clear_inputs()
+        Button:
+            text: "Clear"
+            on_release: app.clear_inputs()
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            text: app.num_watched
+            size_hint_y: 0.1
+            color: (0, 1, 1, 1)
+        BoxLayout:
+            orientation: 'vertical'
+            id: movie_box
+        Label:
+            text: app.status_output
+            size_hint_y: 0.1
+            color: (1, 1, 0.5, 1)
